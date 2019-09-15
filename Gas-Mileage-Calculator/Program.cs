@@ -11,11 +11,10 @@ namespace Gas_Mileage_Calculator
         static void Main(string[] args)
         {
             Boolean isRunning = true;
-            double totalMPG = 0.00;
+            double totalMPG;
             double newMPG;
             double miles;
             double gallons;
-            //double[] MPGArr = new double[0];
             List<double> MPGList = new List<double>(); 
 
             while (isRunning)
@@ -24,7 +23,6 @@ namespace Gas_Mileage_Calculator
                 miles = Convert.ToDouble(Console.ReadLine());
                 if (miles == -1)
                 {
-                    isRunning = false;
                     break;
                 }
                 Console.Write("Enter the number of gallons used: ");
@@ -33,17 +31,15 @@ namespace Gas_Mileage_Calculator
                 newMPG = miles / gallons;
                 MPGList.Add(newMPG);
 
-                for (int i = 0; i < MPGList.Count; i++) {
+                totalMPG = 0.00;
+
+                for (int i = 0; i < MPGList.Count(); i++) {
                     totalMPG += MPGList[i];
                 }
 
-                totalMPG /= MPGList.Count;
+                totalMPG /= MPGList.Count();
 
-                Console.WriteLine(MPGList);
-                Console.WriteLine(MPGList.Count);
-                Console.ReadLine();
-
-                Console.WriteLine("MPG this tankful: " + MPGList[MPGList.Count]);
+                Console.WriteLine("MPG this tankful: " + MPGList[MPGList.Count() - 1]);
                 Console.WriteLine("Total MPG: " + totalMPG);
                 Console.WriteLine();
             }
